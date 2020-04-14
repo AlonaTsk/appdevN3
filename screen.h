@@ -9,7 +9,7 @@ typedef struct{
     int row;
     int col;
 }Position;//cursor position
-
+int devicestatus(void);
 void setfgcolor(int);
 void setbgcolor(int);
 void setcolors(int, int);
