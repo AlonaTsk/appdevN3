@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "screen.h"
+#include "sound.h"
 int main(void) {
     Position cur = getscreensize();
     gotoXY(1,1);
@@ -17,7 +18,7 @@ int main(void) {
         printf("HELLO\n");
         usleep(500000);
     }
-    for(int i=0; i<15; i++){
+    /*for(int i=0; i<15; i++){
         setcolors(YELLOW, MAGENTA);
         clearscreen();
         gotoXY(i+1, 70);
@@ -38,6 +39,7 @@ int main(void) {
         printf("HELLO\n");
         usleep(500000);
     }
+    */
     //printf("The following message will be in RED color\n");
     gotoXY(14,35);
     setfgcolor(33);
@@ -50,4 +52,9 @@ int main(void) {
     resetcolors();
     clearscreen();
     printf("This line is back to default color\n");
+    FILE *fp;
+    fp = fopen("test.wav", "r");
+    WAVheader h = readwavhdr(fp);
+    fclose(fp);
+    displayWAVhdr(h);
 }
