@@ -1,3 +1,5 @@
+//#define SDEBUG
+
 typedef struct{
     char chunkID[4];
     int chunkSize;
@@ -16,3 +18,4 @@ typedef struct{
 
 WAVheader readwavhdr(FILE *fp);
 void displayWAVhdr(WAVheader h);
+void wavdata(WAVheader h, FILE *fp);
